@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using _Project.Scriptable_Objects.Scripts;
 using _Project.Scripts;
+using _Project.Scripts.Utils;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -18,11 +19,30 @@ public class ShootingController : MonoBehaviour
 
     private bool _startedShooting;
 
+    private static ObjectPooling<PoolObject> _bulletPool;
+    
     private PlayerController _playerController;
 
     private void Awake()
     {
         _playerController = GetComponent<PlayerController>();
+
+        SetPool();
+    }
+
+    private void SetPool()
+    {
+        _bulletPool = new ObjectPooling<PoolObject>(bullet.gameObject, OnPull, OnPush,30);
+    }
+
+    private void OnPush(PoolObject obj)
+    {
+        obj.GetComponent<Bullet>().ResetVelocity();
+    }
+
+    private void OnPull(PoolObject obj)
+    {
+        obj.GetComponent<Bullet>().InvokePush();
     }
 
     private void Start()
@@ -40,14 +60,17 @@ public class ShootingController : MonoBehaviour
         
         SpawnBullet();
     }
-
-
+    
     public void SpawnBullet()
     {
         if (!_canShoot) return;
+        var spawnedBullet = _bulletPool.Pull();
+        
+        spawnedBullet.transform.position = shootingPoint.position;
+        spawnedBullet.transform.rotation = shootingPoint.rotation;
+        
+        spawnedBullet.GetComponent<Bullet>().Fire(shootingPoint.forward);
 
-        var spawnedBullet = Instantiate(bullet, shootingPoint.position, shootingPoint.rotation);
-        spawnedBullet.Fire(shootingPoint.forward);
         StartCoroutine(CO_ShootCooldown());
     }
 
