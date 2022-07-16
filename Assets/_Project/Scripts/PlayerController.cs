@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
         _moveVector = PlayerControls.Player.Movement.ReadValue<Vector2>();
     }
 
-    private Vector3 GetMovementVector()
+    public Vector3 GetMovementVector()
     {
         return new Vector3(_moveVector.x * stats.moveSpeed, 0f, _moveVector.y * stats.moveSpeed) * Time.deltaTime;
     }
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         return PlayerControls.Player.MousePosition.ReadValue<Vector2>();
     }
 
-    private RaycastHit GetRayHit()
+    public RaycastHit GetRayHit()
     {
         Ray ray = _cam.ScreenPointToRay(GetMousePosition());
         Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity);

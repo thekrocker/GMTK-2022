@@ -7,6 +7,7 @@ namespace _Project.Scripts
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private PlayerStats stats;
+        
         [SerializeField] private float destroyTime;
 
         private Rigidbody _rb;
@@ -20,7 +21,8 @@ namespace _Project.Scripts
         {
             Invoke(nameof(Push), destroyTime);
         }
-
+        
+        
         public void ResetVelocity()
         {
             _rb.velocity = Vector3.zero;

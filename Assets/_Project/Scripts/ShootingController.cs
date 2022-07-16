@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using _Project.Scriptable_Objects.Scripts;
 using _Project.Scripts;
 using _Project.Scripts.Utils;
@@ -69,7 +67,8 @@ public class ShootingController : MonoBehaviour
         spawnedBullet.transform.position = shootingPoint.position;
         spawnedBullet.transform.rotation = shootingPoint.rotation;
         
-        spawnedBullet.GetComponent<Bullet>().Fire(shootingPoint.forward);
+        var bulletComponent = spawnedBullet.GetComponent<Bullet>();
+        bulletComponent.Fire(shootingPoint.forward);
 
         StartCoroutine(CO_ShootCooldown());
     }
