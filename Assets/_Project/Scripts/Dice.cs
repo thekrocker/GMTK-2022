@@ -16,24 +16,5 @@ public class Dice : MonoBehaviour
         randomNum = Random.Range(1, maxNum + 1);
         TextBox.GetComponent<TextMeshProUGUI>().text = "" + randomNum;
     }
-
-
-    public void GetDiceResult()
-    {
-        switch (randomNum)
-        {
-            case 1:
-                Actions.OnUpgradeDamage?.Invoke();
-                break;
-            case 2:
-                Actions.OnUpgradeHealth?.Invoke();
-                break;
-            case 3:
-                Actions.OnUpgradeMovementSpeed?.Invoke();
-                break;
-            case 4:
-                Actions.OnUpgradeWaveCount?.Invoke();
-                break;
-        }
-    }
+    
 }
