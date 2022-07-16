@@ -3,34 +3,35 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour, IDamageable
 {
-    public float CurrentHealth;
-    public float MaxHealth = 100f;
-    public float Ratio => CurrentHealth / MaxHealth;
+    private float _currentHealth;
+    
+    public float maxHealth = 100f;
+    public float Ratio => _currentHealth / maxHealth;
     
     public UnityEvent OnHealthZero;
     
     void Start()
     {
-        CurrentHealth = MaxHealth;
+        _currentHealth = maxHealth;
     }
 
     public void DecreaseHealth(int damage)
     {
-        CurrentHealth -= damage;
+        _currentHealth -= damage;
 
-        if (CurrentHealth <= 0)
+        if (_currentHealth <= 0)
         {
-            CurrentHealth = 0;
+            _currentHealth = 0;
             OnHealthZero?.Invoke();
         }
     }
     
     public void Heal(int heal)
     {
-        CurrentHealth += heal;
-        if (CurrentHealth >= MaxHealth)
+        _currentHealth += heal;
+        if (_currentHealth >= maxHealth)
         {
-            CurrentHealth = MaxHealth;
+            _currentHealth = maxHealth;
         }
     }
 }

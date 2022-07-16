@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using _Project.Scripts;
 using _Project.Scripts.Utils;
 using UnityEngine;
@@ -11,7 +8,6 @@ public class BulletPoolManager : MonoBehaviour
     public ObjectPooling<PoolObject> BulletPool;
     [SerializeField] private EnemyBullet enemyBullet;
     [field: SerializeField] public Transform EnemyBulletParent { get; private set; }
-
 
     private void Awake()
     {
