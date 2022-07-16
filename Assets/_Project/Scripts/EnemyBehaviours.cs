@@ -9,19 +9,28 @@ public abstract class EnemyBehaviours : MonoBehaviour
 {
     [SerializeField] protected EnemyStats stats;
     [SerializeField] protected PlayerData playerPlayerData;
-    
+
     private NavMeshAgent _agent;
 
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        
+        SetSpeed();
+    }
+    
+    
+
+    public void SetSpeed()
+    {
+        _agent.speed = stats.speed;
     }
 
     public virtual void Chase()
     {
         _agent.SetDestination(playerPlayerData.positionValue);
     }
-    
+
     public void StopAgent(bool status)
     {
         _agent.isStopped = status;
@@ -30,6 +39,11 @@ public abstract class EnemyBehaviours : MonoBehaviour
     public void Look()
     {
         transform.LookAt(playerPlayerData.positionValue);
+    }
+
+    private void OnDisable()
+    {
+        WaveManager.Instance.RemoveEnemy(gameObject);
     }
 
     public abstract void Attack();

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22362807cf2c4485ac10ad91920b0393, type: 3}
-  m_Name: Wave 1
+  m_Script: {fileID: 11500000, guid: 86b71bb43b884b13b7539e7c858a93de, type: 3}
+  m_Name: Enemy_Bomberman
   m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 25581254728952654, guid: ed9080cd66dbdf947bf03b8bba4274d0, type: 3}
-  amount: 10
+  attackRange: 1.3
+  speed: 12
+  projectileSpeed: 0

@@ -17,7 +17,6 @@ namespace _Project.Scripts.States
             Debug.Log("Attack!!");
             
             Sm.EnemyBehaviours.Look();
-
             if (!Sm.EnemyBehaviours.IsInAttackRange()) Sm.ChangeState(Sm.EnemyChaseState);
         }
 

@@ -11,6 +11,8 @@ public class PlayerBulletController : MonoBehaviour
     [Title("References")] [SerializeField] private PlayerBullet playerBullet;
     [SerializeField] private Transform shootingPoint;
     [Title("Properties")] [SerializeField] private PlayerStats stats;
+    [SerializeField] private Transform bulletParent;
+    
 
     private bool _canShoot = true;
 
@@ -66,7 +68,7 @@ public class PlayerBulletController : MonoBehaviour
 
         var bulletComponent = spawnedBullet.GetComponent<PlayerBullet>();
         bulletComponent.Fire(shootingPoint.forward);
-
+        spawnedBullet.transform.SetParent(bulletParent);
         StartCoroutine(CO_ShootCooldown());
     }
 

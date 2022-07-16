@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Creep_RangeEnemy
   m_EditorClassIdentifier: 
   attackRange: 15
-  speed: 5
+  speed: 7
   projectileSpeed: 15
