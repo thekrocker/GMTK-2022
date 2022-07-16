@@ -6,11 +6,10 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ShootingController : MonoBehaviour
+public class PlayerBulletController : MonoBehaviour
 {
-    [Title("References")] [SerializeField] private Bullet bullet;
+    [Title("References")] [SerializeField] private PlayerBullet playerBullet;
     [SerializeField] private Transform shootingPoint;
-
     [Title("Properties")] [SerializeField] private PlayerStats stats;
 
     private bool _canShoot = true;
@@ -18,7 +17,7 @@ public class ShootingController : MonoBehaviour
     private bool _startedShooting;
 
     private static ObjectPooling<PoolObject> _bulletPool;
-    
+
     private PlayerController _playerController;
 
     private void Awake()
@@ -30,17 +29,17 @@ public class ShootingController : MonoBehaviour
 
     private void SetPool()
     {
-        _bulletPool = new ObjectPooling<PoolObject>(bullet.gameObject, OnPull, OnPush,30);
+        _bulletPool = new ObjectPooling<PoolObject>(playerBullet.gameObject, OnPull, OnPush, 30);
     }
 
     private void OnPush(PoolObject obj)
     {
-        obj.GetComponent<Bullet>().ResetVelocity();
+        obj.GetComponent<PlayerBullet>().ResetVelocity();
     }
 
     private void OnPull(PoolObject obj)
     {
-        obj.GetComponent<Bullet>().InvokePush();
+        obj.GetComponent<PlayerBullet>().InvokePush();
     }
 
     private void Start()
@@ -55,19 +54,17 @@ public class ShootingController : MonoBehaviour
     private void Update()
     {
         if (!_startedShooting) return;
-        
         SpawnBullet();
     }
-    
+
     public void SpawnBullet()
     {
         if (!_canShoot) return;
         var spawnedBullet = _bulletPool.Pull();
-        
         spawnedBullet.transform.position = shootingPoint.position;
         spawnedBullet.transform.rotation = shootingPoint.rotation;
-        
-        var bulletComponent = spawnedBullet.GetComponent<Bullet>();
+
+        var bulletComponent = spawnedBullet.GetComponent<PlayerBullet>();
         bulletComponent.Fire(shootingPoint.forward);
 
         StartCoroutine(CO_ShootCooldown());

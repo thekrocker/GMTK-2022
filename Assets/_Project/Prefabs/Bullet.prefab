@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5941235808353810014}
   - component: {fileID: -3276549497455946513}
   - component: {fileID: 6117768325817534757}
+  - component: {fileID: 1645347709823214306}
+  - component: {fileID: 2952959498985896074}
   m_Layer: 3
   m_Name: Bullet
   m_TagString: Untagged
@@ -140,5 +142,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d916a00673ab4009b3f6da1450a4993a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1645347709823214306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7087786612542330235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284af88d04de4ff3a888f9ec52fe9082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
+  OnHit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2952959498985896074}
+        m_TargetAssemblyTypeName: _Project.Scripts.DestructibleObject, Assembly-CSharp
+        m_MethodName: Disable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2952959498985896074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7087786612542330235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829a339f25f34fab9d71fe235cfb5a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

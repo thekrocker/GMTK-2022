@@ -1,15 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using Sirenix.OdinInspector;
+using UnityEngine.Events;
 
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IDamageable
 {
     public float CurrentHealth;
     public float MaxHealth = 100f;
     public float Ratio => CurrentHealth / MaxHealth;
-
+    
+    public UnityEvent OnHealthZero;
+    
     void Start()
     {
         CurrentHealth = MaxHealth;
@@ -18,14 +17,15 @@ public class Health : MonoBehaviour
     public void DecreaseHealth(int damage)
     {
         CurrentHealth -= damage;
+
         if (CurrentHealth <= 0)
         {
-            Debug.Log("Death!");
+            CurrentHealth = 0;
+            OnHealthZero?.Invoke();
         }
     }
-
-
-    public void HealHealth(int heal)
+    
+    public void Heal(int heal)
     {
         CurrentHealth += heal;
         if (CurrentHealth >= MaxHealth)

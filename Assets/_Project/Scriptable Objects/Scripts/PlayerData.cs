@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Values/Positions")]
-public class Position : ScriptableObject
+public class PlayerData : ScriptableObject
 {
-    public Vector3 value;
+    public Health playerHealth;
+    public Vector3 positionValue;
 }
