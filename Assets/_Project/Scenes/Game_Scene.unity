@@ -14406,7 +14406,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7418c1f7a9c938c4f9871660a4d5cc39, type: 2}
   infoText: {fileID: 193816809}
   info: increases move speed
-  targetAmount: 9
+  targetAmount: 7
 --- !u!4 &1525597742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 41bf7bab3a67ad54e9a0bbb70bc52251,
