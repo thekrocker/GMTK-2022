@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 123432, guid: 81ba803537470cd478e76c5d33b7e81e, type: 3}
       propertyPath: m_Name
-      value: RocketMissileBlue
+      value: MainChar_Missile
       objectReference: {fileID: 0}
     - target: {fileID: 465758, guid: 81ba803537470cd478e76c5d33b7e81e, type: 3}
       propertyPath: m_RootOrder
@@ -75,5 +75,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8265724, guid: 81ba803537470cd478e76c5d33b7e81e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 81ba803537470cd478e76c5d33b7e81e, type: 3}
