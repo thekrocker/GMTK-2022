@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86b71bb43b884b13b7539e7c858a93de, type: 3}
   m_Name: Creep_Enemy
   m_EditorClassIdentifier: 
-  damage: 10
+  initialHealth: 35
+  damage: 50
   attackRange: 2
   speed: 5
-  projectileSpeed: 0
+  projectileSpeed: 23

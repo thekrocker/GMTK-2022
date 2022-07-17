@@ -35,14 +35,14 @@ public class DiceManager : MonoBehaviour
     public void RollDice()
     {
         _dice.GetRandomDice();
-        rollDiceButton.interactable = false;
+        rollDiceButton.enabled = false;
 
     }
 
     private void OpenDiceCanvas()
     {
         diceCanvas.SetActive(true);
-        rollDiceButton.interactable = true;
+        rollDiceButton.enabled = true;
     }
 
     private void HandleUpgrades(int diceNumber)
