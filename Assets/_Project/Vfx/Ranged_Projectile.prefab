@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1037878741696276, guid: f6b2fd20db5712f4bae7a30cc8ef3e8d, type: 3}
       propertyPath: m_Name
-      value: SwordWaveWhite
+      value: Ranged_Projectile
       objectReference: {fileID: 0}
     - target: {fileID: 4278162089457904, guid: f6b2fd20db5712f4bae7a30cc8ef3e8d, type: 3}
       propertyPath: m_RootOrder
@@ -129,18 +129,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198265925228830206, guid: f6b2fd20db5712f4bae7a30cc8ef3e8d,
         type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.atime1
+      value: 18119
+      objectReference: {fileID: 0}
+    - target: {fileID: 198265925228830206, guid: f6b2fd20db5712f4bae7a30cc8ef3e8d,
+        type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 0.6037736
+      value: 0.8773585
       objectReference: {fileID: 0}
     - target: {fileID: 198265925228830206, guid: f6b2fd20db5712f4bae7a30cc8ef3e8d,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.g
-      value: 0.093983635
+      value: 0.1448469
       objectReference: {fileID: 0}
     - target: {fileID: 198265925228830206, guid: f6b2fd20db5712f4bae7a30cc8ef3e8d,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.35167655
+      value: 0.6651827
+      objectReference: {fileID: 0}
+    - target: {fileID: 198265925228830206, guid: f6b2fd20db5712f4bae7a30cc8ef3e8d,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198265925228830206, guid: f6b2fd20db5712f4bae7a30cc8ef3e8d,
         type: 3}
@@ -156,6 +166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.r
       value: 0.7314387
+      objectReference: {fileID: 0}
+    - target: {fileID: 198265925228830206, guid: f6b2fd20db5712f4bae7a30cc8ef3e8d,
+        type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.m_NumAlphaKeys
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 199063116165302616, guid: f6b2fd20db5712f4bae7a30cc8ef3e8d,
         type: 3}
