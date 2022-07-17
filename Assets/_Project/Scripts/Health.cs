@@ -1,5 +1,6 @@
 using System;
 using _Project.Scripts;
+using _Project.Scripts.Managers;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -30,6 +31,17 @@ public class Health : MonoBehaviour, IDamageable
         CurrentHealth = stats.initialHealth;
     }
 
+
+    private void OnEnable()
+    {
+        Actions.OnUpgraded += FullHeal;
+    }
+
+    private void OnDisable()
+    {
+        Actions.OnUpgraded -= FullHeal;
+    }
+
     public void DecreaseHealth(int damage)
     {
         CurrentHealth -= damage;
@@ -47,5 +59,10 @@ public class Health : MonoBehaviour, IDamageable
         {
             CurrentHealth = stats.initialHealth;
         }
+    }
+
+    public void FullHeal()
+    {
+        CurrentHealth = stats.initialHealth;
     }
 }
