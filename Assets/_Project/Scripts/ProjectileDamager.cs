@@ -17,8 +17,10 @@ namespace _Project.Scripts
             if (idamageable != null)
             {
                 idamageable.DecreaseHealth(damage.damage);
+                ParticleManager.Instance.PlayBulletHitParticle(transform);
                 OnHit?.Invoke();
             }
         }
+        
     }
 }

@@ -17,5 +17,12 @@
         {
             gameObject.SetActive(false);
         }
+
+        public override void OnDisable()
+        {
+            base.OnDisable();
+            
+            ParticleManager.Instance.PlayHasbullahParticle(transform);
+        }
     }
 }

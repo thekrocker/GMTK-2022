@@ -6,6 +6,8 @@ using UnityEngine;
 public class ParticleManager : MonoBehaviour
 {
     [SerializeField] private GameObject dieParticle;
+    [SerializeField] private GameObject bulletHitParticle;
+    [SerializeField] private GameObject hasbullahParticle;
 
     
     public static ParticleManager Instance;
@@ -16,6 +18,17 @@ public class ParticleManager : MonoBehaviour
 
     public void PlayDieParticle(Transform targetTransform)
     {
-        Instantiate(dieParticle, targetTransform.position, Quaternion.identity);
+        Instantiate(dieParticle, targetTransform.position, dieParticle.transform.rotation);
+    }
+
+    public void PlayBulletHitParticle(Transform target)
+    {
+        Instantiate(bulletHitParticle, target.position, bulletHitParticle.transform.rotation);
+    }
+
+    public void PlayHasbullahParticle(Transform target)
+    {
+        Instantiate(hasbullahParticle, target.position, bulletHitParticle.transform.rotation);
+
     }
 }
