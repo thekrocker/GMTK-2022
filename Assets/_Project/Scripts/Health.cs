@@ -1,3 +1,4 @@
+using System;
 using _Project.Scripts;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,31 +9,43 @@ public class Health : MonoBehaviour, IDamageable
 
     private float _currentHealth;
 
-    public float Ratio => _currentHealth / stats.initialHealth;
+    public float Ratio => CurrentHealth / stats.initialHealth;
+
+    public float CurrentHealth
+    {
+        get => _currentHealth;
+        set
+        {
+            _currentHealth = value;
+            OnHealthChanged?.Invoke();
+        }
+    }
+
+    public Action OnHealthChanged;
 
     public UnityEvent OnHealthZero;
 
     void Start()
     {
-        _currentHealth = stats.initialHealth;
+        CurrentHealth = stats.initialHealth;
     }
 
     public void DecreaseHealth(int damage)
     {
-        _currentHealth -= damage;
+        CurrentHealth -= damage;
 
-        if (!(_currentHealth <= 0)) return;
+        if (!(CurrentHealth <= 0)) return;
 
-        _currentHealth = 0;
+        CurrentHealth = 0;
         OnHealthZero?.Invoke();
     }
 
     public void Heal(int heal)
     {
-        _currentHealth += heal;
-        if (_currentHealth >= stats.initialHealth)
+        CurrentHealth += heal;
+        if (CurrentHealth >= stats.initialHealth)
         {
-            _currentHealth = stats.initialHealth;
+            CurrentHealth = stats.initialHealth;
         }
     }
 }

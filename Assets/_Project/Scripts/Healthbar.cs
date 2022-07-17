@@ -1,30 +1,47 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace DefaultNamespace
 {
-    [RequireComponent(typeof(Health))]
     public class Healthbar : MonoBehaviour
     {
         public float changeSpeed = 3f;
         public Image healthBarImage;
-        
-        private Health _health;
 
-        private void Awake()
+        [SerializeField] private Health _health;
+        
+
+        private void OnEnable()
         {
-            _health = GetComponent<Health>();
+            _health.OnHealthChanged += SetHealthBar;
         }
 
-        private void Update()
+        private void OnDisable()
         {
-            SetHealthBar();
+            _health.OnHealthChanged -= SetHealthBar;
         }
 
         public void SetHealthBar()
         {
-            healthBarImage.fillAmount = Mathf.Lerp(healthBarImage.fillAmount, _health.Ratio, Time.deltaTime * changeSpeed);
+            var elapsedTime = 0f;
+            var totalTime = 0.4f;
+
+            StartCoroutine(CO_SetHealth());
+
+            IEnumerator CO_SetHealth()
+            {
+                while (elapsedTime < totalTime)
+                {
+                    elapsedTime += Time.deltaTime;
+                    healthBarImage.fillAmount =
+                        Mathf.Lerp(healthBarImage.fillAmount, _health.Ratio, elapsedTime / totalTime);
+                    yield return null;
+                }
+
+                healthBarImage.fillAmount = _health.Ratio;
+            }
         }
     }
 }

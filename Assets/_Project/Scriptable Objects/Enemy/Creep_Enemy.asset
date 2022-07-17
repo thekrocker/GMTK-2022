@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Creep_Enemy
   m_EditorClassIdentifier: 
   initialHealth: 35
-  damage: 50
+  damage: 10
   attackRange: 2
-  speed: 5
+  speed: 7
   projectileSpeed: 23
