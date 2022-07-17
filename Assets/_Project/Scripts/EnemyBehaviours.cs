@@ -43,6 +43,11 @@ public abstract class EnemyBehaviours : MonoBehaviour
 
     public virtual void OnDisable()
     {
+        
+    }
+
+    public virtual void HandleDie()
+    {
         WaveManager.Instance.RemoveEnemy(gameObject);
         ParticleManager.Instance.PlayDieParticle(transform);
     }

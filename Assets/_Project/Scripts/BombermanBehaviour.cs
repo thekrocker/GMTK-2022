@@ -17,11 +17,11 @@
         {
             gameObject.SetActive(false);
         }
-
-        public override void OnDisable()
+        
+        public override void HandleDie()
         {
-            base.OnDisable();
-            
+            base.HandleDie();
+
             ParticleManager.Instance.PlayHasbullahParticle(transform);
         }
     }
