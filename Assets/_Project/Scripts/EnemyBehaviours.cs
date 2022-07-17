@@ -48,6 +48,7 @@ public abstract class EnemyBehaviours : MonoBehaviour
 
     public virtual void HandleDie()
     {
+        AudioHandler.Instance.PlayDieSounds();
         ParticleManager.Instance.PlayDieParticle(transform);
     }
 
