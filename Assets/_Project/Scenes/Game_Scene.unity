@@ -3009,6 +3009,7 @@ GameObject:
   - component: {fileID: 354388977}
   - component: {fileID: 354388978}
   - component: {fileID: 354388979}
+  - component: {fileID: 354388980}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -3160,6 +3161,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 829a339f25f34fab9d71fe235cfb5a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &354388980
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354388969}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &357162785 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 85b5254cc37f7014b873bb3bd12d242d,
@@ -8272,9 +8286,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1675912216}
-        m_TargetAssemblyTypeName: Dice, Assembly-CSharp
-        m_MethodName: GetRandomDice
+      - m_Target: {fileID: 1675912217}
+        m_TargetAssemblyTypeName: DiceManager, Assembly-CSharp
+        m_MethodName: RollDice
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14342,7 +14356,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7418c1f7a9c938c4f9871660a4d5cc39, type: 2}
   infoText: {fileID: 193816809}
   info: increases move speed
-  targetAmount: 25
+  targetAmount: 13
 --- !u!4 &1525597742 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 41bf7bab3a67ad54e9a0bbb70bc52251,
