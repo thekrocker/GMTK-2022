@@ -8,13 +8,12 @@ using TMPro;
 
 public class Dice : MonoBehaviour
 {
-    public GameObject TextBox;
     public int randomNum;
+    private int _diceCount = 6;
 
-    public void RandomNumber(int maxNum)
+    public void GetRandomDice()
     {
-        randomNum = Random.Range(1, maxNum + 1);
-        TextBox.GetComponent<TextMeshProUGUI>().text = "" + randomNum;
+        randomNum = Random.Range(1, _diceCount + 1);
+        Actions.OnDiceRoll?.Invoke(randomNum);
     }
-    
 }

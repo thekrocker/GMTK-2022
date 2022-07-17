@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8840abff78334a96a235d277617556c3, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
+  initialHealth: 150
+  damage: 10
   moveSpeed: 10
   bulletSpeed: 30
   attackInterval: 0.1

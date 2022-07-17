@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        SetMovement();
+        SetMovementVector();
         _charController.Move(GetMovementVector());
     }
 
@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
     private Vector2 _finalVector;
 
-    private void SetMovement()
+    private void SetMovementVector()
     {
         _moveVector = PlayerControls.Player.Movement.ReadValue<Vector2>();
 

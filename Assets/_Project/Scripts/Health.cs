@@ -1,37 +1,38 @@
+using _Project.Scripts;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class Health : MonoBehaviour, IDamageable
 {
+    [SerializeField] private BaseStats stats;
+
     private float _currentHealth;
-    
-    public float maxHealth = 100f;
-    public float Ratio => _currentHealth / maxHealth;
-    
+
+    public float Ratio => _currentHealth / stats.initialHealth;
+
     public UnityEvent OnHealthZero;
-    
+
     void Start()
     {
-        _currentHealth = maxHealth;
+        _currentHealth = stats.initialHealth;
     }
 
     public void DecreaseHealth(int damage)
     {
         _currentHealth -= damage;
 
-        if (_currentHealth <= 0)
-        {
-            _currentHealth = 0;
-            OnHealthZero?.Invoke();
-        }
+        if (!(_currentHealth <= 0)) return;
+
+        _currentHealth = 0;
+        OnHealthZero?.Invoke();
     }
-    
+
     public void Heal(int heal)
     {
         _currentHealth += heal;
-        if (_currentHealth >= maxHealth)
+        if (_currentHealth >= stats.initialHealth)
         {
-            _currentHealth = maxHealth;
+            _currentHealth = stats.initialHealth;
         }
     }
 }

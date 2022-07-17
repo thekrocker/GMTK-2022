@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Wave 1
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 25581254728952654, guid: ed9080cd66dbdf947bf03b8bba4274d0, type: 3}
-  amount: 10
+  - {fileID: 4568369024210454355, guid: 3855e5a7a4680d847913a5b9f19f513d, type: 3}
+  amount: 15

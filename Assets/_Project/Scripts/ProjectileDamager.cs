@@ -6,7 +6,7 @@ namespace _Project.Scripts
 {
     public class ProjectileDamager : MonoBehaviour
     {
-        [SerializeField] private int damage;
+        [SerializeField] private BaseStats damage;
 
         public UnityEvent OnHit;
 
@@ -16,7 +16,7 @@ namespace _Project.Scripts
 
             if (idamageable != null)
             {
-                idamageable.DecreaseHealth(damage);
+                idamageable.DecreaseHealth(damage.damage);
                 OnHit?.Invoke();
             }
         }

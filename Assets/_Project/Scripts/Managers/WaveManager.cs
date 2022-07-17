@@ -22,15 +22,30 @@ public class WaveManager : MonoBehaviour
     {
         if (Instance == null) Instance = this;
     }
+    
+    private void OnEnable()
+    {
+        Actions.OnUpgraded += SpawnNextWave;
+    }
 
     private void Start()
     {
         SpawnWave();
     }
+    
+    private void OnDisable()
+    {
+        Actions.OnUpgraded -= SpawnNextWave;
+    }
 
-    private WaveDataSO GetCurrrentWave()
+    public WaveDataSO GetCurrrentWave()
     {
         return waveListSO.waves[_currentWaveIndex % waveListSO.waves.Length];
+    }
+
+    public WaveDataSO GetNextWave()
+    {
+        return waveListSO.waves[(_currentWaveIndex + 1) % waveListSO.waves.Length];
     }
 
     public void RemoveEnemy(GameObject obj)
@@ -54,7 +69,8 @@ public class WaveManager : MonoBehaviour
         {
             float angle = (i * Mathf.PI * 2f) / GetCurrrentWave().amount;
 
-            Vector3 newPos = playerPlayerData.positionValue + new Vector3(Mathf.Cos(angle) * radius, 0f, Mathf.Sin(angle) * radius);
+            Vector3 newPos = playerPlayerData.positionValue +
+                             new Vector3(Mathf.Cos(angle) * radius, 0f, Mathf.Sin(angle) * radius);
 
             var spawned = Instantiate(GetCurrrentWave().enemies[i % GetCurrrentWave().enemies.Length], newPos,
                 Quaternion.identity);
@@ -62,7 +78,7 @@ public class WaveManager : MonoBehaviour
             activeEnemies.Add(spawned);
         }
     }
-    
+
     private void SpawnNextWave()
     {
         IncreaseWaveIndex();

@@ -98,8 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137c1ff439b334c4c86bda227c183f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHealth: 100
-  MaxHealth: 100
+  stats: {fileID: 11400000, guid: 286ff61b2f265a643b553b7081c8aaba, type: 2}
   OnHealthZero:
     m_PersistentCalls:
       m_Calls:
@@ -221,8 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818b4ea3f497492c8598cee1c1ecdd51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyBullet: {fileID: 8059777834596092174, guid: 0ade47c562a9f4e4abad1b16e087dcd4,
-    type: 3}
   shootingPoint: {fileID: 6015337352853080789}
   stats: {fileID: 11400000, guid: 286ff61b2f265a643b553b7081c8aaba, type: 2}
 --- !u!1 &8194418271999950149

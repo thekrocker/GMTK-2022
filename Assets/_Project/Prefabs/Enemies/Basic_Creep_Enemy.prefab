@@ -79,8 +79,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 137c1ff439b334c4c86bda227c183f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentHealth: 100
-  MaxHealth: 100
+  stats: {fileID: 11400000, guid: 971a0ee0cbaf1e947917819281b3d730, type: 2}
   OnHealthZero:
     m_PersistentCalls:
       m_Calls:
@@ -188,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb408ddef2760d4f8e988bd048a0bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  stats: {fileID: 11400000, guid: 971a0ee0cbaf1e947917819281b3d730, type: 2}
   playerData: {fileID: 11400000, guid: c0e787688669dba4b9e5b917dc0627f6, type: 2}
 --- !u!1 &4568369024576867126
 GameObject:

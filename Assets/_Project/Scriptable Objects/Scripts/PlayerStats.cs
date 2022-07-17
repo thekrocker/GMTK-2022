@@ -1,10 +1,11 @@
-﻿using Sirenix.OdinInspector;
+﻿using _Project.Scripts;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace _Project.Scriptable_Objects.Scripts
 {
     [CreateAssetMenu(menuName = "Stats/PlayerStats", order = 0)]
-    public class PlayerStats : ScriptableObject
+    public class PlayerStats : BaseStats
     {
         [Title("Movement")]
         public float moveSpeed;
