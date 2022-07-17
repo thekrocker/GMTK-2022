@@ -41,14 +41,13 @@ public abstract class EnemyBehaviours : MonoBehaviour
         transform.LookAt(playerPlayerData.positionValue);
     }
 
-    public virtual void OnDisable()
+    public void OnDisable()
     {
-        
+        WaveManager.Instance.RemoveEnemy(gameObject);
     }
 
     public virtual void HandleDie()
     {
-        WaveManager.Instance.RemoveEnemy(gameObject);
         ParticleManager.Instance.PlayDieParticle(transform);
     }
 
